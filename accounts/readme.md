@@ -1,0 +1,2 @@
+## Creating custom user model
+Custom user model is one recommended because we cannot modify the user model that is default with the django. Here we extend `AbstractUser` which will inherit all the functions of the default user model which can in future be edited.
