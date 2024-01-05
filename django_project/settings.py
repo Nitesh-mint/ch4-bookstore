@@ -30,18 +30,20 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites', #added for allauth
+
     #Third Party
     'crispy_forms',
     'crispy_bootstrap5',
     'allauth',
     'allauth.account',
+
     #Local
     'accounts',
     'pages',
     'books',
 
     #for debug and performance NEW TO ME
-    'debug_toolbar' 
+    'debug_toolbar' ,
 ]
 
 MIDDLEWARE = [
@@ -52,7 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = 'django_project.urls'
@@ -160,8 +162,13 @@ ACCOUNT_UNIQUE_EMAIL = True
 DEFAULT_FROM_EMAIL = "admin@djangobookstore.com"
 
 # django-debug-toolbar
-if DEBUG:
-    import socket  # only if you haven't already imported this
-    hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
-    INTERNAL_IPS = [ip[: ip.rfind(".")] + ".1" for ip in ips] + ["127.0.0.1", "10.0.2.2"]
+# if DEBUG:
+#     import socket  # only if you haven't already imported this
+#     hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
+#     INTERNAL_IPS = [ip[: ip.rfind(".")] + ".1" for ip in ips] + ["127.0.0.1", "10.0.2.2", "172.20.0.3"]
 
+# DEBUG_TOOLBAR_CONFIG = { "SHOW_TOOLBAR_CALLBACK": lambda request: False, }
+
+INTERNAL_IPS = [
+    "127.0.0.1","10.0.2.2","192.168.65.1",
+]
